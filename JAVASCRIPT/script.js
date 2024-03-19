@@ -1,7 +1,8 @@
 $(document).ready(function() {
+    // Scrollify configuratie
     $.scrollify({
         section: ".section",
-        interstitialSection: ".footer", // This is where you specify the footer
+        interstitialSection: ".footer",
         sectionName: false,
         scrollbars: false,
         setHeights: false,
@@ -24,5 +25,16 @@ $(document).ready(function() {
                 $.scrollify.move($(this).index());
             });
         }
+    });
+
+    // Click event listener voor de logo-container
+    $('.logo-container').on('click', function() {
+        // Voeg 'animate__animated' en 'animate__shakeX' klassen toe aan de container
+        $(this).addClass('animate__animated animate__shakeX');
+
+        // Verwijder de animatie klassen na het einde van de animatie
+        $(this).one('animationend', function() {
+            $(this).removeClass('animate__animated animate__shakeX');
+        });
     });
 });
