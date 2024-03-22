@@ -643,7 +643,6 @@
  .cameraicon:hover {
      animation: pop 0.5s ease;
      animation-delay: 100ms;
-     cursor:grab;
  }
 
  .personfull:hover {
@@ -652,16 +651,34 @@
  }
 
  #person {
-     width: 100px;
-     height: 80px;
+    width: 100px;
+    height: 80px;
+    transition: all 0.5s ease;
+    scale: 1;
+ }
+
+ .personicon:hover #person {
+     animation: boom 1s ease;
  }
 
  .cameraicon {
-     position: relative;
+     position: absolute;
      margin-left: -1100px;
+     top: 160px;
      scale: 0.85;
      transition: all 0.5s ease;
  }
+ .personicon:hover {
+    animation: pop 0.5s ease;
+    animation-delay: 100ms;
+}
+ .personicon {
+    position: absolute;
+    margin-left: 1100px;
+    top: 190px;
+    scale: 0.85;
+}
+
 
  @keyframes pop {
 
@@ -672,4 +689,23 @@
      100% {
          transform: scale(1);
      }
+ }
+
+ @keyframes boom {
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+ }
+
+ .oranje {
+    background: -webkit-linear-gradient(270deg, #FF9820, #f8a546);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
  }

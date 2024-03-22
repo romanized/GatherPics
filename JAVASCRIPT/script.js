@@ -41,10 +41,11 @@ $(document).ready(function () {
 
 
 const cameraicon = document.querySelector('.cameraicon');
+const personicon = document.querySelector('.personicon');
 const text_2 = document.querySelector('.text-2');
 
 // Add a mouseover event listener
-cameraicon.addEventListener('mouseover', () => {
+cameraicon.addEventListener('mouseenter', () => {
     document.querySelector('.text-2').innerHTML = 'op met een Digitale Camera';
     text_2.classList.add('animate__animated', 'animate__headShake');
     setTimeout(() => {
@@ -52,10 +53,29 @@ cameraicon.addEventListener('mouseover', () => {
     }, 400);
 });
 
-cameraicon.addEventListener('mouseout', () => {
+cameraicon.addEventListener('mouseleave', () => {
     document.querySelector('.text-2').innerHTML = 'op met GatherPics';
     text_2.classList.add('animate__animated', 'animate__headShake');
     setTimeout(() => {
         text_2.classList.remove('animate__animated', 'animate__headShake');
     }, 400);
 });
+
+personicon.addEventListener('mouseenter', () => {
+    text_2.innerHTML = 'op met een Groep';
+    text_2.classList.add('oranje');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+} );
+
+personicon.addEventListener('mouseleave', () => {
+    text_2.innerHTML = 'op met GatherPics';
+    text_2.classList.remove('oranje');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+}
+);
