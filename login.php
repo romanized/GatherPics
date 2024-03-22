@@ -1,40 +1,56 @@
 <?php
-  require_once 'REQUIRED/config.php';
+require_once 'REQUIRED/config.php';
 
-  if($_SERVER['REQUEST_METHOD'] == "POST") {
-    if (trim($_POST['email']) == NULL) {
-        Header("Location:login?error");
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    if (empty($email)) {
+        Header("Location:login?error=emptyemail");
+        exit();
     }
-    if (trim($_POST['password']) == NULL) {
-        Header("Location:login?error");
-    }        
-    $query = $con->query("SELECT * FROM users WHERE email = '".$con->real_escape_string($_POST['email'])."'");
+    if (empty($password)) {
+        Header("Location:login?error=emptypassword");
+        exit();
+    }
 
-    if ($query->num_rows == 1) {
-        $row = $query->fetch_assoc();
-        if (password_verify($_POST['password'],$row['password'])) {
+    
+    $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            
             $_SESSION['loggedin'] = true;
-            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
             $_SESSION['name'] = $row['name'];
-            $_SESSION['profilepic'] = $row['profilepic'];
             $_SESSION['id'] = $row['id'];
             
-            $con->query("UPDATE users SET last_login = '".date('Y-m-d')."' WHERE id = '".$row['id']."'");
-            if ($_SERVER['HTTP_REFFER'] != "") {
+            
+            $stmt = $con->prepare("UPDATE users SET last_login = ? WHERE id = ?");
+            $now = date('Y-m-d');
+            $stmt->bind_param("si", $now, $row['id']);
+            $stmt->execute();
+
+            if (!empty($_SERVER['HTTP_REFERER'])) {
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
             } else {
                 Header("Location: dashboard");
-                // Disable cache
+                
                 header("Cache-Control: no-cache, no-store, must-revalidate");
                 header("Pragma: no-cache");
                 header("Expires: 0");
             }
         } else {
-            Header("Location: login?error");
+            Header("Location: login?error=invalidpassword");
         }
     } else {
-        Header("Location: login?error");
+        Header("Location: login?error=nouser");
     }
 }
 ?>
@@ -84,7 +100,7 @@
     </div>
   </div>
   <script src="./JAVASCRIPT/cursor.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https:
 
 </body>
 

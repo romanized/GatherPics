@@ -2,24 +2,49 @@
 require_once 'REQUIRED/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  if (trim($_POST['email']) == NULL) {
-    Header("Location:signup?error");
-  }
-  if (trim($_POST['password']) == NULL) {
-    Header("Location:signup?error");
-  }
-  if (trim($_POST['username']) == NULL) {
-    Header("Location:signup?error");
-  }
-  $query = $con->query("SELECT * FROM users WHERE email = '" . $con->real_escape_string($_POST['email']) . "'");
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $username = trim($_POST['username']);
 
-  if ($query->num_rows == 1) {
-    Header("Location: signup?error");
-  } else {
-    $con->query("INSERT INTO users (email, password, name, last_login) VALUES ('" . $con->real_escape_string($_POST['email']) . "','" . password_hash($_POST['password'], PASSWORD_BCRYPT) . "','" . $con->real_escape_string($_POST['username']) . "','" . date('Y-m-d') ."')");
-    $_SESSION['loggedin'] = true;
-    Header("Location: dashboard?newuser");
-  }
+    if (empty($email)) {
+        Header("Location:signup?error=emptyemail");
+        exit();
+    }
+    if (empty($password)) {
+        Header("Location:signup?error=emptypassword");
+        exit();
+    }
+    if (empty($username)) {
+        Header("Location:signup?error=emptyusername");
+        exit();
+    }
+
+    
+    $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        Header("Location: signup?error=emailtaken");
+        exit();
+    } else {
+        
+        $stmt = $con->prepare("INSERT INTO users (email, password, name, last_login) VALUES (?, ?, ?, ?)");
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $currentDate = date('Y-m-d');
+        $stmt->bind_param("ssss", $email, $hashedPassword, $username, $currentDate);
+        if ($stmt->execute()) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $email;
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id'] = $stmt->insert_id;
+            Header("Location: dashboard?newuser");
+        } else {
+            
+            Header("Location: signup?error=sqlerror");
+        }
+    }
 }
 ?>
 
@@ -69,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
   </div>
   <script src="./JAVASCRIPT/cursor.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https:
 
 </body>
 
