@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Scrollify configuratie
+    // Scrollify configuration
     $.scrollify({
         section: ".section",
         interstitialSection: ".footer",
@@ -8,6 +8,7 @@ $(document).ready(function() {
         setHeights: false,
         overflowScroll: false,
         updateHash: false,
+        scrollSpeed: 400,
         before: function(sectionIndex) {
             $(".pagination li").removeClass("active");
             $(".pagination li").eq(sectionIndex).addClass("active");
@@ -27,12 +28,12 @@ $(document).ready(function() {
         }
     });
 
-    // Click event listener voor de logo-container
+    // Click event listener for the logo-container
     $('.logo-container').on('click', function() {
-        // Voeg 'animate__animated' en 'animate__shakeX' klassen toe aan de container
+        // Add 'animate__animated' and 'animate__shakeX' classes to the container
         $(this).addClass('animate__animated animate__shakeX');
 
-        // Verwijder de animatie klassen na het einde van de animatie
+        // Remove the animation classes at the end of the animation
         $(this).one('animationend', function() {
             $(this).removeClass('animate__animated animate__shakeX');
         });

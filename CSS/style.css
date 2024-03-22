@@ -513,30 +513,30 @@
      margin-top: 16px;
  }
 
- .starting-link {
-     position: relative;
-     border: none;
-     text-decoration: none;
-     font-weight: 600;
-     display: inline-flex;
-     justify-content: center;
-     align-items: center;
-     padding: 24px 78px;
-     border-radius: 24px;
-     color: #000;
-     background: linear-gradient(108deg, rgb(254, 254, 254) 0%, rgb(254, 254, 254) 100%);
-     box-shadow: 0px 12px 30px rgba(5, 113, 255, 0.3);
-     font-size: 22px;
-     letter-spacing: 0.02em;
-     cursor: pointer;
-     overflow: hidden;
-     outline: none;
-     transition: all 0.3s ease-in-out;
-     background: linear-gradient(45deg, rgb(175, 173, 255) 0%, rgb(114, 112, 255) 100%);
-     color: #fff;
-     margin-left: 10px;
-     margin-top: 16px;
- }
+        .starting-link {
+            position: relative;
+            border: none;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 78px;
+            border-radius: 24px;
+            color: #000;
+            background: linear-gradient(108deg, rgb(254, 254, 254) 0%, rgb(254, 254, 254) 100%);
+            box-shadow: 0px 12px 30px rgba(5, 113, 255, 0.3);
+            font-size: 22px;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+            transition: all 0.3s ease-in-out; 
+            background: linear-gradient(45deg, rgb(175, 173, 255) 0%, rgb(114, 112, 255) 100%);
+            color: #fff;
+            margin-left: 10px;
+            margin-top: 16px;
+        }
 
  .starting-link:hover {
      transform: translateY(-3px);
@@ -547,13 +547,12 @@
      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  }
 
- .nav-link,
- .starting-link {
-     position: relative;
-     border-radius: 12px;
-     transition: transform 0.3s ease;
-
- }
+    .nav-link, .starting-link {
+    position: relative;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+   
+}
 
  .nav-link:hover,
  .starting-link:hover {
@@ -644,6 +643,7 @@
  .cameraicon:hover {
      animation: pop 0.5s ease;
      animation-delay: 100ms;
+     cursor:grab;
  }
 
  .cameraicon {
