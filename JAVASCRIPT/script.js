@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    // Scrollify configuration
+$(document).ready(function () {
+
     $.scrollify({
         section: ".section",
         interstitialSection: ".footer",
@@ -8,34 +8,54 @@ $(document).ready(function() {
         setHeights: false,
         overflowScroll: false,
         updateHash: false,
-        scrollSpeed: 400,
-        before: function(sectionIndex) {
+        before: function (sectionIndex) {
             $(".pagination li").removeClass("active");
             $(".pagination li").eq(sectionIndex).addClass("active");
         },
-        afterRender: function() {
+        afterRender: function () {
             var pagination = "<ul class='pagination'>";
-            $(".section").each(function(index) {
+            $(".section").each(function (index) {
                 pagination += "<li" + (index === 0 ? " class='active'" : "") + "></li>";
             });
             pagination += "</ul>";
 
             $("body").append(pagination);
 
-            $(".pagination li").on("click", function() {
+            $(".pagination li").on("click", function () {
                 $.scrollify.move($(this).index());
             });
         }
     });
 
-    // Click event listener for the logo-container
-    $('.logo-container').on('click', function() {
-        // Add 'animate__animated' and 'animate__shakeX' classes to the container
+
+    $('.logo-container').on('click', function () {
+
         $(this).addClass('animate__animated animate__shakeX');
 
-        // Remove the animation classes at the end of the animation
-        $(this).one('animationend', function() {
+
+        $(this).one('animationend', function () {
             $(this).removeClass('animate__animated animate__shakeX');
         });
     });
+});
+
+
+const cameraicon = document.querySelector('.cameraicon');
+const text_2 = document.querySelector('.text-2');
+
+// Add a mouseover event listener
+cameraicon.addEventListener('mouseover', () => {
+    document.querySelector('.text-2').innerHTML = 'op met een Digitale Camera';
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+});
+
+cameraicon.addEventListener('mouseout', () => {
+    document.querySelector('.text-2').innerHTML = 'op met GatherPics';
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
 });

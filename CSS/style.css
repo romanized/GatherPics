@@ -646,6 +646,16 @@
      cursor:grab;
  }
 
+ .personfull:hover {
+     animation: pop 0.5s ease;
+     animation-delay: 100ms;
+ }
+
+ #person {
+     width: 100px;
+     height: 80px;
+ }
+
  .cameraicon {
      position: relative;
      margin-left: -1100px;
