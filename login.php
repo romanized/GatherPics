@@ -1,21 +1,19 @@
 <?php
 require_once 'REQUIRED/config.php';
 
-
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
     if (empty($email)) {
-        Header("Location:login?error=emptyemail");
+        header("Location: login?error=emptyemail");
         exit();
     }
     if (empty($password)) {
-        Header("Location:login?error=emptypassword");
+        header("Location: login?error=emptypassword");
         exit();
     }
 
-    
     $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -24,36 +22,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
-            
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['id'] = $row['id'];
-            
-            
-            $stmt = $con->prepare("UPDATE users SET last_login = ? WHERE id = ?");
-            $now = date('Y-m-d');
-            $stmt->bind_param("si", $now, $row['id']);
+
+            $stmt = $con->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
+            $stmt->bind_param("i", $row['id']);
             $stmt->execute();
 
-            if (!empty($_SERVER['HTTP_REFERER'])) {
+            // Redirect logic with proper exit
+            if (!empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'login') === false) {
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
             } else {
-                Header("Location: dashboard");
-                
-                header("Cache-Control: no-cache, no-store, must-revalidate");
-                header("Pragma: no-cache");
-                header("Expires: 0");
+                header("Location: dashboard");
             }
+            exit(); // Add an exit() after redirection
         } else {
-            Header("Location: login?error=invalidpassword");
+            header("Location: login?error=invalidpassword");
+            exit();
         }
     } else {
-        Header("Location: login?error=nouser");
+        header("Location: login?error=nouser");
+        exit();
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -100,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
   </div>
   <script src="./JAVASCRIPT/cursor.js"></script>
-  <script src="https:
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </body>
 
