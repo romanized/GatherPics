@@ -670,8 +670,9 @@
      position: absolute;
      margin-left: -1100px;
      top: 160px;
-     scale: 0.85;
+     scale: 0.75;
      transition: all 0.5s ease;
+     animation: breathing 3s infinite;
  }
 
  .personicon:hover {
@@ -683,8 +684,49 @@
      position: absolute;
      margin-left: 1100px;
      top: 190px;
-     scale: 0.85;
+     scale: 0.75;
+     animation: breathing 3s infinite;
  }
+
+ .hearticon {
+     position: absolute;
+     margin-left: 1100px;
+     top: 430px;
+     scale: 0.75;
+     animation: breathing 3s infinite;
+
+ }
+
+ .hearticon:hover {
+     animation: pop 0.5s ease;
+     animation-delay: 100ms;
+ }
+
+ .hearticon:hover #Hart {
+     animation: hartbouncing 1s ease;
+     transform-origin: center;
+ }
+
+ .qrcode {
+     position: absolute;
+     margin-left: -1100px;
+     top: 430px;
+     scale: 0.75;
+     animation: breathing 3s infinite;
+ }
+
+ .qrcode:hover {
+     animation: pop 0.5s ease;
+     animation-delay: 100ms;
+ }
+
+ .qrcode:hover #qrcode {
+     animation: rotate 1s infinite;
+     animation-delay: .5s;
+     transform-origin: center;
+
+ }
+
 
 
  @keyframes pop {
@@ -712,8 +754,85 @@
      }
  }
 
+ @keyframes hartbouncing {
+     0% {
+         transform: scale(1);
+     }
+
+     20% {
+         transform: scale(1.2);
+     }
+
+     40% {
+         transform: scale(1);
+     }
+
+     60% {
+         transform: scale(1.2);
+     }
+
+     80% {
+         transform: scale(1);
+     }
+
+     90% {
+         transform: scale(1.2);
+     }
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ @keyframes breathing {
+     0% {
+         transform: translateY(-5px);
+     }
+
+     50% {
+         transform: translateY(5px);
+     }
+
+     100% {
+         transform: translateY(-5px);
+     }
+ }
+
+ @keyframes rotate {
+     0% {
+         transform: rotate(0deg);
+     }
+
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+
+ .element {
+     animation-name: rotate;
+     animation-duration: 4s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+ }
+
+
  .oranje {
      background: -webkit-linear-gradient(270deg, #FF9820, #f8a546);
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .rood {
+     background: -webkit-linear-gradient(270deg, #FF2020, #f85446);
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .groen {
+     background: -webkit-linear-gradient(270deg, #48FA96, #54f854);
      -webkit-background-clip: text;
      background-clip: text;
      -webkit-text-fill-color: transparent;

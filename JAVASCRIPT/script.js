@@ -42,11 +42,14 @@ $(document).ready(function () {
 
 const cameraicon = document.querySelector('.cameraicon');
 const personicon = document.querySelector('.personicon');
+const hearticon = document.querySelector('.hearticon');
+const qrcode = document.querySelector('.qrcode');
 const text_2 = document.querySelector('.text-2');
+const cursor_follower = document.querySelector('.cursor-follower');
 
 // Add a mouseover event listener
 cameraicon.addEventListener('mouseenter', () => {
-    document.querySelector('.text-2').innerHTML = 'op met een Digitale Camera';
+    text_2.innerHTML = 'op met een Digitale Camera';
     text_2.classList.add('animate__animated', 'animate__headShake');
     setTimeout(() => {
         text_2.classList.remove('animate__animated', 'animate__headShake');
@@ -54,7 +57,7 @@ cameraicon.addEventListener('mouseenter', () => {
 });
 
 cameraicon.addEventListener('mouseleave', () => {
-    document.querySelector('.text-2').innerHTML = 'op met GatherPics';
+    text_2.innerHTML = 'op met GatherPics';
     text_2.classList.add('animate__animated', 'animate__headShake');
     setTimeout(() => {
         text_2.classList.remove('animate__animated', 'animate__headShake');
@@ -68,11 +71,49 @@ personicon.addEventListener('mouseenter', () => {
     setTimeout(() => {
         text_2.classList.remove('animate__animated', 'animate__headShake');
     }, 400);
-} );
+});
 
 personicon.addEventListener('mouseleave', () => {
     text_2.innerHTML = 'op met GatherPics';
     text_2.classList.remove('oranje');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+}
+);
+
+hearticon.addEventListener('mouseenter', () => {
+    text_2.innerHTML = 'op met veel Liefde';
+    text_2.classList.add('rood');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+});
+
+hearticon.addEventListener('mouseleave', () => {
+    text_2.innerHTML = 'op met GatherPics';
+    text_2.classList.remove('rood');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+}
+);
+
+qrcode.addEventListener('mouseenter', () => {
+    text_2.innerHTML = 'op met een simpele QR-code';
+    text_2.classList.add('groen');
+    text_2.classList.add('animate__animated', 'animate__headShake');
+    setTimeout(() => {
+        text_2.classList.remove('animate__animated', 'animate__headShake');
+    }, 400);
+});
+
+qrcode.addEventListener('mouseleave', () => {
+    text_2.innerHTML = 'op met GatherPics';
+    text_2.classList.remove('groen');
     text_2.classList.add('animate__animated', 'animate__headShake');
     setTimeout(() => {
         text_2.classList.remove('animate__animated', 'animate__headShake');
