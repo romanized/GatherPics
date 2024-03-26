@@ -38,6 +38,11 @@ $(document).ready(function () {
         });
     });
 
+        $('.submenu-content').on('mouseenter', function() {
+        $(this).closest('.nav-item').addClass('hover-active');
+    }).on('mouseleave', function() {
+        $(this).closest('.nav-item').removeClass('hover-active');
+    });
 });
 
 
