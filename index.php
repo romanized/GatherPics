@@ -1,3 +1,10 @@
+<?php
+
+require_once 'REQUIRED/config.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -41,8 +48,14 @@
                     <a href="./privacy.html" class="submenu-item">Privacy</a>
                 </div>
             </div>
-            <a href="login" class="nav-link">Login</a>
-            <a href="signup.php" class="nav-link sign-up-link">Sign up</a>
+            <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo '<a href="dashboard" class="nav-link">Dashboard</a>';
+            } else {
+                echo '<a href="login" class="nav-link">Login</a>';
+                echo '<a href="signup.php" class="nav-link sign-up-link">Sign up</a>';
+            }
+            ?>
         </div>
     </div>
 
@@ -93,7 +106,13 @@
             <p class="text-2">op met GatherPics</p>
             <p class="text-3">Al jouw belangerijke herinneringen op een plek.</p>
             <div class="starting-link-container">
-                <a href="signup" class="starting-link">Nu Beginnen</a>
+                <?php
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    echo '<a href="dashboard" class="starting-link">Ga verder</a>';
+                } else {
+                    echo '<a href="signup" class="starting-link">Nu Beginnen</a>';
+                }
+                ?>
                 <span class="hover-text">Welkom &#128075;</span>
             </div>
         </div>

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 15px 20px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar-header h3 {
+        display: none;
+    }
+
+    .nav-links li a span {
+        display: none;
+    }
+
+    .content {
+        margin-left: 80px;
+    }
+}
+
+.user-info {
+    position: absolute;
+    bottom: 10px;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.logged-in-user {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.logout-icon {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.logout-icon:hover {
+    color: #666;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-ACTIEF {
+    color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.status-BINNENKORT {
+    color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.status-KLAAR {
+    color: #fa1313;
+    background-color: rgba(255, 0, 0, 0.1);
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    margin-left: 10px;
+    font-size: 12px;
+}
