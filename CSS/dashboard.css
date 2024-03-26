@@ -52,7 +52,7 @@ body {
 }
 
 .content {
-    margin-left: 260px;
+    margin-left: 300px;
     padding: 20px;
 }
 
@@ -70,6 +70,7 @@ body {
     }
 
     .content {
+        justify-content: center;
         margin-left: 80px;
     }
 }
@@ -166,6 +167,11 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+.table-content {
+    position: relative;
+    width: 100%;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -180,4 +186,43 @@ h2 {
     padding: 4px 8px;
     margin-left: 10px;
     font-size: 12px;
+}
+
+.choose {
+    position: relative;
+    top: 50px;
+    margin-bottom: 50px;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(228 228 228 / 60%);
+    border-radius: 20px;
+}
+
+.choose-event {
+    width: 270px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.make {
+    margin: 20px;
+    text-align: center;
+}
+
+.share {
+    margin: 20px;
+    text-align: center;
+}
+
+.watch {
+    margin: 20px;
+    text-align: center;
+}
+
+.events {
+    display: none;
 }
