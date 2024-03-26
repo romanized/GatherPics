@@ -37,6 +37,7 @@ $(document).ready(function () {
             $(this).removeClass('animate__animated animate__shakeX');
         });
     });
+
 });
 
 

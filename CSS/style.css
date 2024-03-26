@@ -121,21 +121,148 @@
      font-size: 20px;
  }
 
- .navbar {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     position: fixed;
-     left: 0;
-     right: 0;
-     height: 95px;
-     background-color: rgba(254, 254, 254, 0.8);
-     backdrop-filter: blur(8px);
-     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
-     padding: 0 100px;
-     box-sizing: border-box;
-     z-index: 999;
- }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 95px;
+    background-color: rgba(254, 254, 254, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 0 100px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-item.submenu:hover .submenu-content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.submenu-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    z-index: 1000;
+    min-width: 260px;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in, visibility 0s linear 0.1s; 
+}
+
+
+.submenu-content .submenu-item {
+    padding: 25px;
+    width: calc(50% - 20px);
+    text-align: center;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.submenu:hover .submenu-content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+
+.submenu-content .submenu-item:nth-child(1) {
+    background: linear-gradient(45deg, rgb(168, 160, 255) 0%, rgb(96, 126, 244) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.submenu-content .submenu-item:nth-child(2) {
+    background: linear-gradient(315deg, rgb(255, 135, 68) 0%, rgb(255, 210, 96) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.submenu-content .submenu-item:nth-child(3) {
+    background: linear-gradient(270deg, rgb(255, 116, 107) 0%, rgb(245, 97, 171) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.submenu-content .submenu-item:nth-child(4) {
+    background: linear-gradient(45deg, rgb(76, 228, 190), rgb(65, 205, 163));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.submenu-content .submenu-item:nth-child(1):hover,
+.submenu-content .submenu-item:nth-child(2):hover,
+.submenu-content .submenu-item:nth-child(3):hover,
+.submenu-content .submenu-item:nth-child(4):hover {
+    background: linear-gradient(45deg, rgba(168, 160, 255, 0.7) 0%, rgba(96, 126, 244, 0.7) 100%);
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.submenu-item:hover {
+    background-color: #ddd;
+}
+
+.submenu-content .submenu-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-item.submenu:hover .submenu-content,
+.submenu-content:hover {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.nav-item.hover-active .nav-link {
+   
+    transform: translateY(-3px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.nav-item.submenu:not(:hover) .submenu-content:not(:hover) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in, visibility 0s linear 0.3s;
+}
+
+.submenu-content .submenu-item:focus,
+.submenu-content .submenu-item:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 
  .navbar::before {
      content: '';
@@ -159,7 +286,7 @@
      --b: 12px;
      --c: #000000;
      padding: calc(var(--g) + var(--b));
-     --_c: #0000 0 25%, var(--c) 0 50%;
+     --_c: #00000000 0 25%, var(--c) 0 50%;
      --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
      --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
      background:
