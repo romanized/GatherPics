@@ -168,7 +168,6 @@ if (!$_SESSION['loggedin'] == true) {
     <script src="./JAVASCRIPT/dashboard.js"></script>
     <script src="https://kit.fontawesome.com/a88fb386eb.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
 </body>
 
 </html>
