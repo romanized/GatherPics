@@ -44,7 +44,7 @@ function navigate(url) {
             setTimeout(() => {
                 targetDiv.classList.remove('animate__animated', 'animate__fadeInUp');
                 bezig = false
-            }, 2000);
+            }, 2500);
         }
     }
 
