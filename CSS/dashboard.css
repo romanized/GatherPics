@@ -52,7 +52,7 @@ body {
 }
 
 .content {
-    margin-left: 300px;
+    margin-left: 280px;
     padding: 20px;
 }
 
@@ -225,4 +225,35 @@ h2 {
 
 .events {
     display: none;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.event-card h3 {
+    margin-top: 0;
+}
+
+.event-card p {
+    margin-bottom: 10px;
+}
+
+.event-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.event-actions button {
+    margin-left: 10px;
 }

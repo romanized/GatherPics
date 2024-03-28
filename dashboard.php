@@ -128,7 +128,40 @@ if (!$_SESSION['loggedin'] == true) {
             </div>
         </div>
         <div class="events">
-            <p>Evenementen</p>
+            <h1>Events</h1>
+            <?php
+            $stmt = $con->prepare("SELECT * FROM events WHERE FIND_IN_SET(?, users)");
+            $stmt->bind_param("i", $_SESSION['id']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                echo '<div class="event-list">';
+                while ($row = $result->fetch_assoc()) {
+                    $date = date('d-m-Y', strtotime($row['date']));
+                    echo '<div class="event-card">
+                        <h3 class="text-lg font-semibold">' . $row['naam'] . '</h3>
+                        <p>Datum: ' . $date . '</p>
+                        <p>Locatie: ' . $row['locatie'] . '</p>
+                        <div class="event-actions">';
+                    if ($row['userid'] == $_SESSION['id']) {
+                        echo '<a href="event?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Bekijk</a>';
+                        echo '<a href="edit-event?id=' . $row['id'] . '" class="btn btn-secondary btn-sm">Bewerk</a>';
+                    } else {
+                        echo '<a href="event?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Bekijk</a>';
+                    }
+                    echo '</div>
+                    </div>';
+                }
+                echo '</div>';
+            } else {
+                echo '<div class="no-events">
+                    <h2>Geen evenementen gevonden</h2>
+                </div>';
+            }
+            ?>
+            <div class="create-event">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Maak een event</button>
+            </div>
         </div>
     </div>
     <script src="./JAVASCRIPT/cursor.js"></script>
