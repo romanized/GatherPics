@@ -144,9 +144,11 @@ if (!$_SESSION['loggedin'] == true) {
                         <p>Locatie: ' . $row['locatie'] . '</p>
                         <div class="event-actions">';
                     if ($row['userid'] == $_SESSION['id']) {
+                        echo '<a href="CAMERA/camera?id=' . $row['id'] . '&userid='. $_SESSION['id'] .'" class="btn btn-primary btn-sm">Camera</a>';
                         echo '<a href="event?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Bekijk</a>';
                         echo '<a href="edit-event?id=' . $row['id'] . '" class="btn btn-secondary btn-sm">Bewerk</a>';
                     } else {
+                        echo '<a href="CAMERA/camera?id=' . $row['id'] . '?userid='. $_SESSION['id'] .'" class="btn btn-primary btn-sm">Camera</a>';
                         echo '<a href="event?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Bekijk</a>';
                     }
                     echo '</div>

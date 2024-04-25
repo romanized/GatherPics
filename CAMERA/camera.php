@@ -2,8 +2,14 @@
 require_once '../REQUIRED/config.php';
 
 
-$event_id = 1;
-$userid = 50;
+$event_id = isset($_GET['id']) ? $_GET['id'] : null;
+$userid = isset($_GET['userid']) ? $_GET['userid'] : null;
+
+if ($event_id === null || $userid === null) {
+    echo "Vereiste parameters ontbreken.";
+    exit;
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $imageData = file_get_contents('php://input');

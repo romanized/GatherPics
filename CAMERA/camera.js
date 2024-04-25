@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cameraSensor = document.querySelector("#camera--sensor"),
         cameraTrigger = document.querySelector("#camera--trigger");
 
-    const constraints = { video: { facingMode: "environment" }, audio: false };
+    const constraints = { video: { facingMode: "environment" }, audio: false, width: { ideal: 1080 }, height: { ideal: 1920 } };
 
     let cameraStream = null;
 
