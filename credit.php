@@ -28,17 +28,19 @@
     <div class="cursor-follower"></div>
 
     <div class="navbar">
-        <div class="logo-container">
-            <img src="./MEDIA/IMG/logo-no-background.png" alt="Logo GatherPics" class="logo">
-        </div>
+        <a href="./index.php">
+            <div class="logo-container">
+                <img src="./MEDIA/IMG/logo-no-background.png" alt="Logo GatherPics" class="logo">
+            </div>
+        </a>
         <div class="nav-links">
             <div class="nav-item submenu">
                 <a href="#" class="nav-link">Meer&nbsp;&nbsp;&nbsp; &#9207;</a>
                 <div class="submenu-content">
-                    <a href="./about.html" class="submenu-item">Over</a>
-                    <a href="./credit.html" class="submenu-item">Credits</a>
-                    <a href="./tos.html" class="submenu-item">AGV</a>
-                    <a href="./privacy.html" class="submenu-item">Privacy</a>
+                    <a href="./about.php" class="submenu-item">Over</a>
+                    <a href="./credit.php" class="submenu-item">Credits</a>
+                    <a href="./tos.php" class="submenu-item">AGV</a>
+                    <a href="./privacy.php" class="submenu-item">Privacy</a>
                 </div>
             </div>
             <?php

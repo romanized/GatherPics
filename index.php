@@ -124,6 +124,9 @@ require_once 'REQUIRED/config.php';
                     en laat genodigden hun foto's delen om samen een prachtige fotocollage te creëren.</p>
                 <a href="./about.php" class="styled-button">Meer informatie</a>
             </div>
+            <div class="image-container" style="margin-top: 21vh; max-width: 425px;">
+                <img src="MEDIA/IMG/foto2.png" alt="Event Image" class="event-image">
+            </div>
         </div>
 
         <div class="section" id="last-section">

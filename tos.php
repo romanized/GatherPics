@@ -28,9 +28,11 @@
     <div class="cursor-follower"></div>
 
     <div class="navbar">
-        <div class="logo-container">
-            <img src="./MEDIA/IMG/logo-no-background.png" alt="Logo GatherPics" class="logo">
-        </div>
+        <a href="./index.php">
+            <div class="logo-container">
+                <img src="./MEDIA/IMG/logo-no-background.png" alt="Logo GatherPics" class="logo">
+            </div>
+        </a>
         <div class="nav-links">
             <div class="nav-item submenu">
                 <a href="#" class="nav-link">Meer&nbsp;&nbsp;&nbsp; &#9207;</a>
