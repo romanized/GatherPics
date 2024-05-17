@@ -23,7 +23,7 @@ if (!$_SESSION['loggedin'] == true) {
     <link rel="manifest" href="MEDIA/IMG/site.webmanifest">
     <link rel="mask-icon" href="MEDIA/IMG/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="MEDIA/IMG/favicon.ico">
-    <title>GatherPics | Dashboard</title>
+    <title>GatherPics | Maak event</title>
 </head>
 
 <body class="animate__animated animate__fadeIn">
@@ -53,10 +53,10 @@ if (!$_SESSION['loggedin'] == true) {
         </div>
     </nav>
     <div class="content">
-        <div class="dashboard active">
-            <h1>Dashboard</h1>
+        <div class="createevent active">
+            <h1>Events</h1>
             <div class="dashboard-content">
-                <h2>Recente Evenementen</h2>
+                <h2>Maak een event</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -162,7 +162,7 @@ if (!$_SESSION['loggedin'] == true) {
             }
             ?>
             <div class="create-event">
-                <button onclick="navigate('createevent')" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Maak een event</button>
+                <a href="createevent.php" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Maak een event</a>
             </div>
         </div>
     </div>

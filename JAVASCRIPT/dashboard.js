@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
 let bezig = false;
 
 
-navigate('events');
+navigate('dashboard');
 
 
 
