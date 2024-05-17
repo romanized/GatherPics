@@ -75,6 +75,31 @@ body {
     }
 }
 
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-header, .user-info {
+        text-align: left;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links li a {
+        justify-content: center;
+    }
+}
+
 .user-info {
     position: absolute;
     bottom: 10px;
@@ -110,7 +135,6 @@ h2 {
     margin-bottom: 20px;
 
 }
-
 
 .table {
     width: 100%;
@@ -154,7 +178,6 @@ h2 {
 .status-KLAAR {
     color: #fa1313;
     background-color: rgba(255, 0, 0, 0.1);
-
 }
 
 .btn {
@@ -256,4 +279,39 @@ h2 {
 
 .event-actions button {
     margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-content, .event-list {
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        padding: 8px 10px;
+    }
+
+    .choose-event {
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card {
+        padding: 10px;
+    }
+
+    .event-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-actions button {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
 }
