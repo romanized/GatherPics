@@ -42,10 +42,10 @@ require_once 'REQUIRED/config.php';
             <div class="nav-item submenu">
                 <a href="#" class="nav-link">Meer&nbsp;&nbsp;&nbsp; &#9207;</a>
                 <div class="submenu-content">
-                    <a href="./about.html" class="submenu-item">Over</a>
-                    <a href="./credit.html" class="submenu-item">Credits</a>
-                    <a href="./tos.html" class="submenu-item">AGV</a>
-                    <a href="./privacy.html" class="submenu-item">Privacy</a>
+                    <a href="./about.php" class="submenu-item">Over</a>
+                    <a href="./credit.php" class="submenu-item">Credits</a>
+                    <a href="./tos.php" class="submenu-item">AGV</a>
+                    <a href="./privacy.php" class="submenu-item">Privacy</a>
                 </div>
             </div>
             <?php
@@ -58,7 +58,6 @@ require_once 'REQUIRED/config.php';
             ?>
         </div>
     </div>
-
 
     <div id="fullpage">
         <div class="section first">
@@ -123,7 +122,7 @@ require_once 'REQUIRED/config.php';
                 <p class="big-text second">Genodigden delen met elkaar</p>
                 <p class="small-text">Van bruiloften en verjaardagen tot grote evenementen, maak je eigen evenement aan
                     en laat genodigden hun foto's delen om samen een prachtige fotocollage te creëren.</p>
-                <a href="./about.html" class="styled-button">Meer informatie</a>
+                <a href="./about.php" class="styled-button">Meer informatie</a>
             </div>
         </div>
 
@@ -133,10 +132,10 @@ require_once 'REQUIRED/config.php';
 
         <div class="section footer">
             <div class="footer-links">
-                <a href="./about.html" class="footer-link">Over GatherPics</a>
-                <a href="./credit.html" class="footer-link">Credits</a>
-                <a href="./tos.html" class="footer-link">Algemene voorwaarden</a>
-                <a href="./privacy.html" class="footer-link">Privacy</a>
+                <a href="./about.php" class="footer-link">Over GatherPics</a>
+                <a href="./credit.php" class="footer-link">Credits</a>
+                <a href="./tos.php" class="footer-link">Algemene voorwaarden</a>
+                <a href="./privacy.php" class="footer-link">Privacy</a>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GatherPics.nl</p>
